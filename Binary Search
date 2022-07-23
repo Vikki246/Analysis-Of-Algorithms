@@ -1,0 +1,42 @@
+#include<iostream>
+using namespace std;
+int binarysearch(int array[],int n,int k);
+int main(){
+    int n;
+    int arr[10];
+    int key;
+    cout << "Enter the number of elements:";
+    cin >> n;
+    cout << "Enter the elements to the array:";
+    for(int i=0;i<n;i++){
+        cin >> arr[i];
+    }
+    cout << "Enter the element to be found:";
+    cin >> key;
+    int result=binarysearch(arr,n,key);
+    if(result==-1){
+        cout << "Key is not found:";
+    }
+    else {
+        cout << "Key is found";
+    }
+    
+}
+int binarysearch(int array[],int n,int k)
+{
+    int low=0;
+    int high=n-1;
+    while(low<=high){
+        int mid=(low+high)/2;
+        if(array[mid]==k){
+            return k;
+        }
+        else if(array[mid]>k){
+            high=mid-1;
+        }
+        else  {
+            low=mid+1;
+        }
+    }
+    return -1;
+}
